@@ -10,7 +10,7 @@ numérico para sistema de notas em caracteres tipo A B C
 
 */
 
-const score = 59;
+let score = 59;
 
 const calcScore = (score) => {
     if(score >= 90){
@@ -37,3 +37,8 @@ const calcScore = (score) => {
 }
 
 calcScore(score)
+calcScore(90)
+calcScore(80)
+calcScore(70)
+calcScore(60)
+calcScore(70)
