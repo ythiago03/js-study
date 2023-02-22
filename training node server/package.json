@@ -1,0 +1,16 @@
+{
+  "name": "training-node-server",
+  "version": "1.0.0",
+  "description": "Just training node",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node server.js"
+  },
+  "author": "Thiago Henrique",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
