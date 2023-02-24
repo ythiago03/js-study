@@ -2,7 +2,7 @@ POST http://localhost:4002/products
 content-type: application/json 
 
 {
-    "name": "Produto teste para deletar",
+    "name": "borracha",
     "price": 33
 }
 
@@ -16,14 +16,14 @@ GET http://localhost:4002/products/985a9e68-5844-48dc-9486-69cc4ebf48b1
 
 ###
 
-PUT http://localhost:4002/products/985a9e68-5844-48dc-9486-69cc4ebf48b1
+PUT http://localhost:4002/products/e6de48c6-7874-4747-8f98-4c1e936bbeb7
 content-type: application/json 
 
 {
-    "name": "Produto teste para deleta usando o delete",
+    "name": "borrachinha",
     "price": 30
 }
 
 ###
 
-DELETE http://localhost:4002/products/985a9e68-5844-48dc-9486-69cc4ebf48b1
+DELETE http://localhost:4002/products/e6de48c6-7874-4747-8f98-4c1e936bbeb7

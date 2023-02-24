@@ -1,11 +1,20 @@
 const express = require('express')
 const { randomUUID } = require('crypto')
+const fs = require('fs')
 
 const app = express();
 
 app.use(express.json());
 
-const products = [];
+let products = [];
+
+fs.readFile('products.json', 'utf-8', (err, data) => {
+    if(err){
+        console.log(err);
+    }else{
+        products = JSON.parse(data)
+    }
+})
 
 /*
 .post => inserir um dado
@@ -25,6 +34,8 @@ app.post('/products', (req, res) => {
     }
 
     products.push(product)
+
+    productFile()
 
     return res.json(product)
 })
@@ -50,6 +61,8 @@ app.put('/products/:id', (req, res) => {
         price
     }
 
+    productFile()
+
     return res.json({message: 'Produto alterado com sucesso'})
 })
 
@@ -59,9 +72,22 @@ app.delete('/products/:id', (req, res) => {
     const productIndex = products.findIndex(product => product.id === id)
     products.splice(productIndex, 1)
 
+    productFile()
     return res.json({message: 'Produto deletado com sucesso'})
 })
 
+const productFile = () => {
+    fs.writeFile('products.json',JSON.stringify(products), (err) => {
+        if(err){
+            console.log(err);
+        }else{
+            console.log('Produto inserido');
+        }
+
+    })
+}
+
 app.listen('4002', () => {
     console.log('Server rodando na porta 4002');
-})
+})  
+
